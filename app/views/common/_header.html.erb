@@ -4,11 +4,9 @@
     <!-- スマートフォンサイズで表示されるメニューボタンとテキスト -->
     <div class="navbar-header">
 
-      <!--
-        メニューボタン
-        data-toggle : ボタンを押したときにNavbarを開かせるために必要
-        data-target : 複数navbarを作成する場合、ボタンとナビを紐づけるために必要
-
+      <!--メニューボタン
+        data-toggl:ボタンを押したときにNavbarを開かせるために必要
+        data-target:複数navbarを作成する場合、ボタンとナビを紐づけるために必要
       -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-menu-1">
         <span class="sr-only">Toggle navigation</span>
@@ -16,38 +14,37 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      
       <!-- タイトルなどのテキスト -->
-      <a class="navbar-brand" href="#">Designup.jp</a>
-
+      <a class="navbar-brand" href="#">@cosme</a>
     </div>
-
     <!-- グローバルナビの中身 -->
     <div class="collapse navbar-collapse" id="nav-menu-1">
-      
       <!-- 各ナビゲーションメニュー -->
       <ul class="nav navbar-nav">
 
         <!-- 通常のリンク -->
         <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li><a href="#">HOMEとか</a></li>
 
-        <!-- ドロップダウンのメニューも配置可能 -->
+        <!-- ドロップダウン -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">MENU<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
+            <li><%= link_to 'HOME', root_path %></li>
+            <li><a href="#">MYPAGE</a></li>
             <li><a href="#">Something else here</a></li>
+            <!--ここでmenuvar内separate-->
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
+            <!--ここでmenuvar内separate-->
+            <% if user_signed_in? %>
             <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><%= link_to 'ログアウト', '/users/sign_out',method: :delete %></li>
+            <% end %>
           </ul>
         </li>
-        
       </ul>
-
     </div>
   </div>
 </nav>
+
