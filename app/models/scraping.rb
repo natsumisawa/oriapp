@@ -12,6 +12,7 @@ class Scraping
         values = page.search('.price')
         brands = page.search('.brand a')
         categories_array = page.search('.category')
+        brand = page.search('.brand a')
 
         count_number = names.count
         i = 0
@@ -20,7 +21,11 @@ class Scraping
           name = names[i].inner_text
           value = values[i].inner_text
           brand = brands[i].inner_text
-          item = Item.where(name: name).first_or_create(name: name, value: value, brand: brand)
+
+          item_brand = ItemBrand.where(brand: brand).first_or_create(brand: brand)
+
+          item = item_brand.items.where(name: name).first_or_create(name: name, value: value)
+
           categories = categories_array[i].search("a")
           categories.each do |category|
             category_text = category.inner_text
@@ -67,15 +72,6 @@ class Scraping
         end
     end
 
-    def self.get_category
-        agent = Mechanize.new
-        page = agent.get("http://www.cosme.net/item/item_id/802/products")
-        categories = page.search('.category a')
-        categories.each do |cat|
-          category = cat.inner_text
-          Category.create(category: category)
-        end
-    end
 
     def self.get_brand
         agent = Mechanize.new
@@ -85,25 +81,6 @@ class Scraping
           puts bra.inner_text
         end
     end
-
-    def self.get_name
-        agent = Mechanize.new
-        page = agent.get("http://www.cosme.net/item/item_id/802/products")
-        names = page.search('.item a')
-        names.each do |nam|
-          puts nam.inner_text
-        end
-    end
-
-    def self.get_value
-        agent = Mechanize.new
-        page = agent.get("http://www.cosme.net/item/item_id/802/products")
-        values = page.search('.price')
-        values.each do |val|
-          puts val.inner_text
-        end
-    end
-
 
 end
 
