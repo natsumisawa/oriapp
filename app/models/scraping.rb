@@ -1,5 +1,5 @@
 class Scraping
-  def self.img
+  def self.get_links
     links = []
     agent = Mechanize.new
     page = agent.get("http://www.cosme.net/item/item_id/802/products")
@@ -7,7 +7,7 @@ class Scraping
     elements.each do |ele|
       links << ele[:href]
     end
-    #linksにリンク先がたくさん入った
+    #linksに商品の詳細ページURL情報が1ページ目の10件だけ入ってる
     links.each do |link|
       get_img(link)
     end
@@ -16,7 +16,7 @@ class Scraping
   def self.get_img(link)#linkは引数
     agent = Mechanize.new
     page = agent.get(link)
-    imgs = page.search(".pict img")
+    imgs = page.search(".pic img")
     imgs.each do |img|
       puts img[:src]
     end
