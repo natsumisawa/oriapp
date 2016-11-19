@@ -1,9 +1,22 @@
 <!DOCTYPE html>
-<html lang='ja'>
+<html class="no-js" lang='ja'>
   <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <!--これより下はテンプレのタグ-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adriya - Minimal, Creative, One Page Bootstrap Template</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/font-icon.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!--ここまで-->
     <title>oriapp</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -12,8 +25,6 @@
   <body>
     <%= render partial: 'common/header' %>
     <%= yield %>
-    <footer class='row text-center'>
-      <p>(C) Sawa 2016 </p>
-    </footer>
-  </body>
+
+</body>
 </html>

@@ -7,19 +7,46 @@ class Scraping
         elements.each do |ele|
           links << ele[:href]
         end
-    #linksに商品の詳細ページURL情報が1ページ目の10件だけ入ってる
-        links.each do |link|
-            get_img(link)
-            get_color(link)
+
+        names = page.search('.item a')
+        values = page.search('.price')
+        brands = page.search('.brand a')
+
+        count_number = names.count
+        i = 0
+
+        while (i != count_number) do
+          name = names[i].inner_text
+          value = values[i].inner_text
+          brand = brands[i].inner_text
+          item = Item.create(name: name, value: value, brand: brand)
+          link = links[i]
+          get_img(link, item.id)
+          i += 1
         end
+
+    #linksに商品の詳細ページURL情報が1ページ目の10件だけ入ってる
+        # links.each do |link|
+        #     get_item
+        #     get_img(link)
+        #     get_color(link)
+        # end
     end
 
-    def self.get_img(link)#linkは引数
+    def self.get_img(link, item_id)#linkは引数
         agent = Mechanize.new
         page = agent.get(link)
-        imgs = page.search(".pic img")
-        imgs.each do |img|
-          puts img[:src]
+        colors = page.search(".color-txt")
+        imgs = page.search(".color-pic .pic img")
+
+        count_number = colors.count
+        i = 0
+
+        while (i != count_number) do
+          color = colors[i].inner_text
+          img_url = imgs[i][:src]
+          ItemImg.create(color: color, img_url: img_url, item_id: item_id)
+          i += 1
         end
     end
 
@@ -68,6 +95,7 @@ class Scraping
           puts val.inner_text
         end
     end
+
 
 end
 
