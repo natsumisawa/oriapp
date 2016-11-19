@@ -11,6 +11,7 @@ class Scraping
         names = page.search('.item a')
         values = page.search('.price')
         brands = page.search('.brand a')
+        categories_array = page.search('.category')
 
         count_number = names.count
         i = 0
@@ -19,7 +20,14 @@ class Scraping
           name = names[i].inner_text
           value = values[i].inner_text
           brand = brands[i].inner_text
-          item = Item.create(name: name, value: value, brand: brand)
+          item = Item.where(name: name).first_or_create(name: name, value: value, brand: brand)
+          categories = categories_array[i].search("a")
+          categories.each do |category|
+            category_text = category.inner_text
+            category = Category.where(category: category_text).first_or_create
+            category.item_categories.create(item_id: item.id)
+            # item.categories.create(category: category_text) unless Category.where(category: category_text)
+          end
           link = links[i]
           get_img(link, item.id)
           i += 1
