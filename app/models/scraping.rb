@@ -40,6 +40,33 @@ class Scraping
           puts cat.inner_text
         end
     end
-    
+
+    def self.get_brand
+        agent = Mechanize.new
+        page = agent.get("http://www.cosme.net/item/item_id/802/products")
+        brands = page.search('.brand a')
+        brands.each do |bra|
+          puts bra.inner_text
+        end
+    end
+
+    def self.get_name
+        agent = Mechanize.new
+        page = agent.get("http://www.cosme.net/item/item_id/802/products")
+        names = page.search('.item a')
+        names.each do |nam|
+          puts nam.inner_text
+        end
+    end
+
+    def self.get_value
+        agent = Mechanize.new
+        page = agent.get("http://www.cosme.net/item/item_id/802/products")
+        values = page.search('.price')
+        values.each do |val|
+          puts val.inner_text
+        end
+    end
+
 end
 
