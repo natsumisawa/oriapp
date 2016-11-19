@@ -19,12 +19,6 @@ ActiveRecord::Schema.define(version: 20161117112717) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "item_categories", force: :cascade do |t|
-    t.string   "category",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "item_imgs", force: :cascade do |t|
     t.string   "color",      limit: 255
     t.text     "img_url",    limit: 65535
