@@ -31,5 +31,15 @@ class Scraping
           puts col.inner_text
         end
     end
+
+    def self.get_category
+        agent = Mechanize.new
+        page = agent.get("http://www.cosme.net/item/item_id/802/products")
+        categories = page.search('.category a')
+        categories.each do |cat|
+          puts cat.inner_text
+        end
+    end
+    
 end
 
