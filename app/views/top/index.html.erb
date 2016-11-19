@@ -4,12 +4,12 @@
 </div>
 
 <h2>
-Your favorite cosme
+TOP PAGE
 </h2>
 
 <!--繰り返しで要素表示するところ-->
 <div class=container>
-  <% 3.times{ %>
+  <% 1.times{ %>
     <a href=''>
     <div class='col-xs-4 item_list'>
       <img src="http://cdn-cosme.net/media/product/10097/246485.jpg">
@@ -35,8 +35,8 @@ Your favorite cosme
     <div class="header-content clearfix"> <a class="logo" href="index.html"><img src="images/logo.png" alt=""></a>
       <nav class="navigation" role="navigation">
         <ul class="primary-nav">
-          <li>612.269.8419</li>
-          <li><a href="mainlto:hello@phdl.co">hello@agency.com</a></li>
+            <li><%= link_to 'HOME', root_path %></li>
+            <li><%= link_to 'ログアウト', '/users/sign_out',method: :delete %></li>
         </ul>
       </nav>
       <a href="#" class="nav-toggle">Menu<span></span></a> </div>
@@ -55,7 +55,7 @@ Your favorite cosme
       </div>
       <div class="col-md-5 col-sm-6 hero">
         <div class="hero-content">
-          <p>ポーチの中身を見てみよう！</p>
+          <p>みんなのコスメ</p>
         </div>
         <!-- hero --> 
       </div>
@@ -66,93 +66,34 @@ Your favorite cosme
 <!-- portfolio grid section -->
 <section id="portfolio">
   <div class="container">
+
     <div class="row">
       <div class="col-lg-12 text-center">
         <hr class="section">
       </div>
     </div>
+
     <div class="row">
-      <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
+
+    <%= @img.each do |ele| %>
+      <div class="col-sm-6 portfolio-item">
+      <a href="work-details.html" class="portfolio-link">
         <div class="caption">
           <div class="caption-content">
-            <h3>The Shape of Design</h3>
+            <h3>ーーさんのポーチ</h3>
             <h4>Branding/Graphic</h4>
           </div>
         </div>
-        <img src="images/portfolio/work-1.jpg" class="img-responsive" alt=""> </a> </div>
-      <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-        <div class="caption">
-          <div class="caption-content">
-            <h3>czarna kawka</h3>
-            <h4>Branding</h4>
-          </div>
-        </div>
-        <img src="images/portfolio/work-2.jpg" class="img-responsive" alt=""> </a> </div>
-      <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-        <div class="caption">
-          <div class="caption-content">
-            <h3>czarna kawka</h3>
-            <h4>Branding</h4>
-          </div>
-        </div>
-        <img src="images/portfolio/work-3.jpg" class="img-responsive" alt=""> </a> </div>
-      <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-        <div class="caption">
-          <div class="caption-content">
-            <h3>czarna kawka</h3>
-            <h4>Branding</h4>
-          </div>
-        </div>
-        <img src="images/portfolio/work-4.jpg" class="img-responsive" alt=""> </a> </div>
-      <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-        <div class="caption">
-          <div class="caption-content">
-            <h3>czarna kawka</h3>
-            <h4>Branding</h4>
-          </div>
-        </div>
-        <img src="images/portfolio/work-5.jpg" class="img-responsive" alt=""> </a> </div>
-      <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-        <div class="caption">
-          <div class="caption-content">
-            <h3>czarna kawka</h3>
-            <h4>Branding</h4>
-          </div>
-        </div>
-        <img src="images/portfolio/work-6.jpg" class="img-responsive" alt=""> </a> </div>
+        <img src=<%= ele.img_url %> alt="">
+      </a>
+      </div>
+    <% end %>
+
     </div>
   </div>
 </section>
 <!-- portfolio grid section --> 
-<!-- service section -->
-<section id="service" class="service section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5 col-sm-6">
-        <h4>We're expert to create beautiful design & smart technology</h4>
-        <p>Nullam at enim mauris. Donec et nunc ipsum. Suspendi tempus fringilla ipsu Cras metus euismod velit gravida at nunc ipsum.</p>
-      </div>
-      <div class="col-md-7 col-sm-6">
-        <div class="col-md-4 col-sm-6 service text-center"> <span class="icon icon-browser"></span>
-          <div class="service-content">
-            <h5>Web & Mobile</h5>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 service text-center"> <span class="icon icon-trophy"></span>
-          <div class="service-content">
-            <h5>Branding</h5>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 service text-center"> <span class="icon icon-megaphone"></span>
-          <div class="service-content">
-            <h5>Digital Marketing</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- service section --> 
+
 <!-- footer section -->
 <footer class="footer">
   <div class="container">
