@@ -37,7 +37,8 @@ class Scraping
         page = agent.get("http://www.cosme.net/item/item_id/802/products")
         categories = page.search('.category a')
         categories.each do |cat|
-          puts cat.inner_text
+          category = cat.inner_text
+          Category.create(category: category)
         end
     end
 
