@@ -1,5 +1,5 @@
 class TopController < ApplicationController
   def index
-    @img = ItemImg.order('id ASC').limit(10)
+    @img = ItemImg.order('id ASC').limit(50)
   end
 end

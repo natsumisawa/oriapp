@@ -3,42 +3,21 @@
   <img src="https://s3-ap-northeast-1.amazonaws.com/lucid.tgd/pages/1a7a5768440d8e0a66ac46a7e5a83d01.">
 </div>
 
-<h2>
-TOP PAGE
-</h2>
-
-<!--繰り返しで要素表示するところ-->
-<div class=container>
-  <% 1.times{ %>
-    <a href=''>
-    <div class='col-xs-4 item_list'>
-      <img src="http://cdn-cosme.net/media/product/10097/246485.jpg">
-    </div>
-    <a href=''>
-    <div class='col-xs-4 item_list'>
-      <img src="http://cdn-cosme.net/media/product/10005/246502.jpg">
-    </div>
-    </a>
-    <a href=''>
-    <div class='col-xs-4 item_list'>
-      <img src="http://cdn-cosme.net/media/product/10051/249086.jpg">
-    </div>
-    </a>
-  <% } %>
-</div>
-
-    <!--テンプレのbodyタグの中身-->
+<!--テンプレのbodyタグの中身-->
 
 <!-- header top section -->
 <section class="banner" role="banner">
   <header id="header">
-    <div class="header-content clearfix"> <a class="logo" href="index.html"><img src="images/logo.png" alt=""></a>
+    <div class="header-content clearfix">
+    <a class="logo" href="index.html"><img src="images/logo.png" alt=""></a>
+    <!--メニューバー-->
       <nav class="navigation" role="navigation">
         <ul class="primary-nav">
             <li><%= link_to 'HOME', root_path %></li>
             <li><%= link_to 'ログアウト', '/users/sign_out',method: :delete %></li>
         </ul>
       </nav>
+     <!--メニューバー-->
       <a href="#" class="nav-toggle">Menu<span></span></a> </div>
   </header>
 </section>
@@ -76,12 +55,12 @@ TOP PAGE
     <div class="row">
 
     <%= @img.each do |ele| %>
-      <div class="col-sm-6 portfolio-item">
-      <a href="work-details.html" class="portfolio-link">
+      <div class="col-xs-3 portfolio-item">
+      <a href="" class="portfolio-link">
         <div class="caption">
           <div class="caption-content">
-            <h3>ーーさんのポーチ</h3>
-            <h4>Branding/Graphic</h4>
+            <h3>someone's poach</h3>
+            <h4>aaaaaaaaaa</h4>
           </div>
         </div>
         <img src=<%= ele.img_url %> alt="">
