@@ -1,6 +1,16 @@
 <!--背景-->
 <div class=container>
   <%= image_tag "logo.jpg" %>
+
+  <% unless current_user.full_profile? %>
+  <header class="header_top panel panel-default col-lg-12 no-profile">
+    <h2>まずは、あなたの基本プロフィールを登録しましょう！</h2>
+    <p>あああああ</p>
+    <%= link_to "プロフィールを登録する", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
+  </header>
+<% else %>
+
+<% end %>
 <!-- header content section -->
   <section id="hero" class="section ">
   <div class="row">
@@ -17,6 +27,8 @@
     <img src="https://s3-ap-northeast-1.amazonaws.com/lucid.tgd/pages/1a7a5768440d8e0a66ac46a7e5a83d01.">
   </div>
 </section>
+
+
 
 <!-- portfolio grid section -->
 <section id="portfolio">
