@@ -7,7 +7,6 @@
     <!--これより下はテンプレのタグ-->
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Adriya - Minimal, Creative, One Page Bootstrap Template</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/flexslider.css">
     <link rel="stylesheet" href="css/jquery.fancybox.css">
@@ -23,12 +22,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
+  <div class="container">
   <body>
-      <!-- header top section -->
+    <!-- header top section -->
     <section class="banner" role="banner">
       <header id="header">
         <div class="header-content clearfix">
-        <!--メニューバー-->
+          <a class="logo">
+          <p>logo</p>
+          </a>
+          <!--メニューバー-->
           <nav class="navigation" role="navigation">
             <ul class="primary-nav">
                 <li><%= link_to 'HOME', root_path %></li>
@@ -49,14 +52,13 @@
     <%= yield %>
 <!-- footer section -->
 <footer class="footer">
-  <div class="container">
-    <div class="col-md-6 right">
-      <p>© 2016 All rights reserved. All Rights Reserved<br>
-        Made with <i class="fa fa-heart pulse"></i> by SawaNatsumi</p>
-    </div>
+  <div class="col-md-6 right">
+    <p>© 2016 All rights reserved. All Rights Reserved<br>
+      Made with <i class="fa fa-heart pulse"></i> by SawaNatsumi</p>
   </div>
 </footer>
 <!-- footer section --> 
 </body>
+</div>
 
 </html>

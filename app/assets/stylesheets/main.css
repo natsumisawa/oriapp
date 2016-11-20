@@ -387,7 +387,8 @@ ul li {
 	 Footer
 -------------------------------------------------------------------------------*/
 .footer {
-	text-align: left;
+	border-top: double #545454;
+	text-align: center;
 	background-color: #fff;
 	padding: 7%;
 }
@@ -397,10 +398,10 @@ ul li {
 	padding: 0px;
 }
 .footer p {
-	color: #c8c8c8;
+	color: #545454;
 }
 .footer a {
-	color: #fff;
+	color: #545454;
 }
 .footer a:hover {
 	text-decoration: underline;
