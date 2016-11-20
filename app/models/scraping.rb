@@ -1,15 +1,20 @@
 class Scraping
     def self.get_links
+        #for i in 0..3 do
         links = []
         agent = Mechanize.new
-        page = agent.get("http://www.cosme.net/item/item_id/802/products")
+        #if i == 0
+          page = agent.get("http://www.cosme.net/item/item_id/802/products")
+        #else
+          #page = agent.get("http://www.cosme.net/item/item_id/802/products/page/i")
+        #end
         elements = page.search('.item-head .item a')
         elements.each do |ele|
           links << ele[:href]
         end
 
         names = page.search('.item a')
-        values = page.search('.price')
+        values = page.search('.spec .price')
         brands = page.search('.brand a')
         categories_array = page.search('.category')
         brand = page.search('.brand a')
@@ -81,6 +86,6 @@ class Scraping
           puts bra.inner_text
         end
     end
-
+  end
 end
 
