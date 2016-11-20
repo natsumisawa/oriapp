@@ -17,6 +17,10 @@
 	padding-top: 100px;
 }
 
+.search_link{
+	border: solid 1px ;
+	padding :10px;
+}
 
 
 @import url(http://fonts.googleapis.com/css?family=Cutive%20Mono:400);
@@ -72,9 +76,7 @@ h5 {
 -------------------------------------------------------------------------------*/
 a {
 	color: #545454;
-	font-size: 15px;
-	border: solid 1px ;
-	padding :10px;
+	font-size: 14px;
 }
 a:hover, a:focus {
 	text-decoration: none;
@@ -416,7 +418,7 @@ ul li {
 	text-decoration: underline;
 }
 .footer .fa-heart {
-	color: #e84545;
+	color: red;
 	font-size: 11px;
 	margin: 0 2px;
 }

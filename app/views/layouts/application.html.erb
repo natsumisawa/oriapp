@@ -22,31 +22,41 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
-  <div class="container">
   <body>
-    <!-- header top section -->
-    <section class="banner" role="banner">
-      <header id="header">
-        <div class="header-content clearfix">
-          <!--メニューバー-->
-          <nav class="navigation" role="navigation">
-            <ul class="primary-nav">
-                <li><%= link_to 'HOME', root_path %></li>
-                <li><%= link_to 'MY PAGE', user_path(current_user) %></li><!--user_pathはresourcesのヘルパーメソッド-->
-                <% if current_user.id %>
-                  <%= link_to 'ユーザー情報変更', edit_user_path(current_user) %>
-                <% end %>
-                <li><%= link_to 'ログアウト', '/users/sign_out',method: :delete %></li>
-            </ul>
-          </nav>
-         <!--メニューバー-->
-         </div>
-      </header>
+  <div class="container">
+<!-- header top section -->
+  <section class="banner" role="banner">
+    <header id="header">
+      <div class="header-content clearfix">
+        <nav class="navigation " role="navigation">
+          <ul class="primary-nav">
+              <li>MENU</li>
+              <%= link_to 'HOME', root_path %>
+              <%= link_to 'MY PAGE', user_path(current_user) %><!--user_pathはresourcesのヘルパーメソッド-->
+              <% if current_user.id %>
+                <%= link_to '設定', edit_user_path(current_user) %>
+              <% end %>
+              <%= link_to 'ログアウト', '/users/sign_out',method: :delete %>
+          </ul>
+        </nav>
+        <a href="#" class="nav-toggle">
+        ::before
+        "MENU"
+        <span>
+        ::before
+        ::after
+        </span>
+        ::after
+        </a>
+       </div>
+    </header>
     </section>
-    <!-- header top section --> 
+<!-- header top section --> 
 
-<!-- header content section --> 
+<!-- content section --> 
     <%= yield %>
+<!-- content section --> 
+
 <!-- footer section -->
 <footer class="footer">
   <div class="col-xs-12 right">

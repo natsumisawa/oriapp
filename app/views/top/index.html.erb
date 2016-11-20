@@ -1,42 +1,52 @@
-<div class=container style="margin:100px;">
-  <%= image_tag "logo.jpg" %>
-  <!-- 名前とアイコンをまず登録してもらう -->
+<!-- 名前とアイコンをまず登録してもらう -->
   <% unless current_user.full_profile? %>
     <div class="header_top panel panel-default col-lg-12 no-profile">
-    <h3>プロフィールを登録しましょう！</h3>
-    <%= link_to "プロフィール登録", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
+      <p>プロフィールを登録しましょう！</p>
+      <%= link_to "プロフィール登録", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
     </div>
   <% end %>
+</div>
+
+<div class="container">
+  <%= image_tag "ayami.jpg" %>
+  <!-- <img src="https://s3-ap-northeast-1.amazonaws.com/lucid.tgd/pages/1a7a5768440d8e0a66ac46a7e5a83d01."> -->
   <p>あなたのコスメを登録しましょう！</p>
-  <%= link_to "検索","/items/search" %>
-  <!-- header content section -->
-  <section id="hero" class="section ">
-  <div class="row">
-    <div class="col-xs-6 hero">
+  <span class="search_link">
+    <%= link_to "コスメを検索","/items/search" %>
+  </span>
+</div>
+
+<!-- header content section -->
+<section id="hero" class="section ">
+  <div class="container">
+    <div class="row">
+    <div class="col-md-7 col-sm-6 col-xs-12 hero">
+      <div class="hero-content">
         <h3>オリジナルアプリケーション!!</h3>
       </div>
-    <div class="col-xs-6 hero">
-        <p>みんなのコスメ</p>
     </div>
-    <img src="https://s3-ap-northeast-1.amazonaws.com/lucid.tgd/pages/1a7a5768440d8e0a66ac46a7e5a83d01.">
+    <div class="col-md-5 col-sm-6 col-xs-12 hero">
+      <div class="hero-content">
+        <p>みんなのポーチの中身を見てみよう</p>
+      </div>
+    </div>
   </div>
 </section>
-
-
+<!-- header content section -->
 
 <!-- portfolio grid section -->
 <section id="portfolio">
-  <div class="row">
-  <% @img.each do |ele| %>
-    <div class="col-xs-3 portfolio-item">
-      <img src=<%= ele.img_url %> alt="">
+  <div class="container">
+    <div class="row">
+      <% @img.each do |ele| %>
+        <div class="col-sm-6 col-xs-3 portfolio-item">
+          <img src=<%= ele.img_url %> alt="">
+        </div>
+      <% end %>
     </div>
-  <% end %>
   </div>
 </section>
-</div>
 <!-- portfolio grid section --> 
-
 
 <!-- JS FILES --> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
