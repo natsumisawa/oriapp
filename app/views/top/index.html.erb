@@ -1,29 +1,22 @@
-<!--背景-->
-<div class=container>
+<div class=container style="margin:100px;">
   <%= image_tag "logo.jpg" %>
-
+  <!-- 名前とアイコンをまず登録してもらう -->
   <% unless current_user.full_profile? %>
-  <header class="header_top panel panel-default col-lg-12 no-profile">
-    <h2>まずは、あなたの基本プロフィールを登録しましょう！</h2>
-    <p>あああああ</p>
-    <%= link_to "プロフィールを登録する", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
-  </header>
-<% else %>
-    <%= link_to "検索","/items/search" %>
-
-<% end %>
-<!-- header content section -->
+    <div class="header_top panel panel-default col-lg-12 no-profile">
+    <h3>プロフィールを登録しましょう！</h3>
+    <%= link_to "プロフィール登録", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
+    </div>
+  <% end %>
+  <p>あなたのコスメを登録しましょう！</p>
+  <%= link_to "検索","/items/search" %>
+  <!-- header content section -->
   <section id="hero" class="section ">
   <div class="row">
     <div class="col-xs-6 hero">
-      <div class="hero-content">
         <h3>オリジナルアプリケーション!!</h3>
       </div>
-    </div>
     <div class="col-xs-6 hero">
-      <div class="hero-content">
         <p>みんなのコスメ</p>
-      </div>
     </div>
     <img src="https://s3-ap-northeast-1.amazonaws.com/lucid.tgd/pages/1a7a5768440d8e0a66ac46a7e5a83d01.">
   </div>
@@ -36,15 +29,7 @@
   <div class="row">
   <% @img.each do |ele| %>
     <div class="col-xs-3 portfolio-item">
-    <a href="" class="portfolio-link">
-      <div class="caption">
-        <div class="caption-content">
-          <h3>someone's poach</h3>
-          <h4>aaaaaaaaaa</h4>
-        </div>
-      </div>
       <img src=<%= ele.img_url %> alt="">
-    </a>
     </div>
   <% end %>
   </div>
@@ -60,4 +45,4 @@
 <script src="js/retina.min.js"></script> 
 <script src="js/modernizr.js"></script> 
 <script src="js/main.js"></script>
-<!--ここまで-->
+<!--ここまで
