@@ -8,4 +8,7 @@ class Item < ActiveRecord::Base
   has_many :item_categories
   has_many :categories, through: :item_categories
 
+  def search
+    @item = Item.where('item LIKE(?)',"%#{params[:keyword]}%").limit(20)
+  end
 end
