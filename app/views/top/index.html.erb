@@ -1,49 +1,42 @@
 <!--背景-->
 <div class=container>
-  <img src="https://s3-ap-northeast-1.amazonaws.com/lucid.tgd/pages/1a7a5768440d8e0a66ac46a7e5a83d01.">
-</div>
-
+  <%= image_tag "logo.jpg" %>
 <!-- header content section -->
-<section id="hero" class="section ">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-7 col-sm-6 hero">
-        <div class="hero-content">
-          <h3>オリジナルアプリケーション!!</h3>
-        </div>
-        <!-- hero --> 
-      </div>
-      <div class="col-md-5 col-sm-6 hero">
-        <div class="hero-content">
-          <p>みんなのコスメ</p>
-        </div>
-        <!-- hero --> 
+  <section id="hero" class="section ">
+  <div class="row">
+    <div class="col-xs-6 hero">
+      <div class="hero-content">
+        <h3>オリジナルアプリケーション!!</h3>
       </div>
     </div>
+    <div class="col-xs-6 hero">
+      <div class="hero-content">
+        <p>みんなのコスメ</p>
+      </div>
+    </div>
+    <img src="https://s3-ap-northeast-1.amazonaws.com/lucid.tgd/pages/1a7a5768440d8e0a66ac46a7e5a83d01.">
   </div>
 </section>
 
 <!-- portfolio grid section -->
 <section id="portfolio">
-  <div class="container">
-    <div class="row">
-    <% @img.each do |ele| %>
-      <div class="col-xs-3 portfolio-item">
-      <a href="" class="portfolio-link">
-        <div class="caption">
-          <div class="caption-content">
-            <h3>someone's poach</h3>
-            <h4>aaaaaaaaaa</h4>
-          </div>
+  <div class="row">
+  <% @img.each do |ele| %>
+    <div class="col-xs-3 portfolio-item">
+    <a href="" class="portfolio-link">
+      <div class="caption">
+        <div class="caption-content">
+          <h3>someone's poach</h3>
+          <h4>aaaaaaaaaa</h4>
         </div>
-        <img src=<%= ele.img_url %> alt="">
-      </a>
       </div>
-    <% end %>
-
+      <img src=<%= ele.img_url %> alt="">
+    </a>
     </div>
+  <% end %>
   </div>
 </section>
+</div>
 <!-- portfolio grid section --> 
 
 
