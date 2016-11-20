@@ -1,0 +1,17 @@
+<div class="search_form">
+<p>検索</p>
+<%= form_tag('/items/search', method: :get) do %>
+  <input name="keyword" placeholder="アイテム名で検索" type="string" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
+<% end %>
+<!-- <form accept-charset="utf-8" action="/" class="js-search-submit" method="get"> -->
+</form>
+
+<article class="section">
+  <div class="container">
+    <h2>検索結果</h2>
+    <% @items.each do |item| %>
+      <%= item.name %>
+    <% end %>
+  </div>
+</article>
+</div>
