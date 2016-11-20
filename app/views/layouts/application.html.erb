@@ -33,18 +33,19 @@
             <ul class="primary-nav">
                 <li><%= link_to 'HOME', root_path %></li>
                 <li><%= link_to 'MY PAGE', user_path(current_user) %></li><!--user_pathはresourcesのヘルパーメソッド-->
-
+                <% if current_user.id %>
+                  <%= link_to 'ユーザー情報変更', edit_user_path(current_user) %>
+                <% end %>
                 <li><%= link_to 'ログアウト', '/users/sign_out',method: :delete %></li>
             </ul>
           </nav>
          <!--メニューバー-->
-          <a href="#" class="nav-toggle">Menu<span></span></a> </div>
+         </div>
       </header>
     </section>
     <!-- header top section --> 
 
 <!-- header content section --> 
-
     <%= yield %>
 <!-- footer section -->
 <footer class="footer">
