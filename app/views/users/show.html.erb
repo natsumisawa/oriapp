@@ -1,1 +1,22 @@
-<p><%= @user.email %>のユーザーページです。</p>
+<div class="container">
+  <h1>マイページ</h1>
+  <h2><%= @user.user_name %></h2>
+  <p>あなたのポーチの中身</p>
+  <section id="portfolio">
+      <div class="row">
+        <% 3.times do %>
+        <div class="col-xs-3 portfolio-item">
+          <a href="" class="portfolio-link">
+          <div class="caption">
+            <div class="caption-content">
+              <h3>someone's poach</h3>
+              <h4>aaaaaaaaaa</h4>
+            </div>
+          </div>
+          <img src="http://cdn-cosme.net/media/product/10097/208662_m.jpg" alt="">
+          </a>
+        </div>
+        <% end %>
+    </div>
+  </section>
+</div>
