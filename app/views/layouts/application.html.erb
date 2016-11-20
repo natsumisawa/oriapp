@@ -22,7 +22,28 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
+
   <body>
+      <!-- header top section -->
+    <section class="banner" role="banner">
+      <header id="header">
+        <div class="header-content clearfix">
+        <!--メニューバー-->
+          <nav class="navigation" role="navigation">
+            <ul class="primary-nav">
+                <li><%= link_to 'HOME', root_path %></li>
+                <li><%= link_to 'MY PAGE', user_path(current_user) %></li><!--user_pathはresourcesのヘルパーメソッド-->
+
+                <li><%= link_to 'ログアウト', '/users/sign_out',method: :delete %></li>
+            </ul>
+          </nav>
+         <!--メニューバー-->
+          <a href="#" class="nav-toggle">Menu<span></span></a> </div>
+      </header>
+    </section>
+    <!-- header top section --> 
+
+<!-- header content section --> 
 
     <%= yield %>
 
