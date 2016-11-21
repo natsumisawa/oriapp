@@ -4,26 +4,24 @@
     <%= form_tag('/items/search', method: :get) do %>
       <input name="keyword" placeholder="アイテム名で検索" type="string" value=""><button type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true" type="submit"></span></button></input>
     <% end %>
-    <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
-    </form>
   </div>
   <div class="brand_search">
     <%= form_tag('/items/search', method: :get) do %>
       <input name="keyword" placeholder="ブランド名で検索" type="string" value=""><button class="btn-search" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></input>
     <% end %>
-    <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
-    </form>
   </div>
 </div>
 
 <h4>カテゴリから探す</h4>
-  <% @items.each do |item| %>
-    <% item.categories.each do |category| %>
-      <ul>
-      <li><%= category.category %></li>
-      </ul>
-    <% end %>
-  <% end %>
+<%= form_tag('/items/search', method: :get) do %>
+    <ul>
+      <% @categories.each do |category|%>
+          <li><input name="category_input" type="hidden" value=<%= category.category %>></input></li>
+      <% end %>
+      <button type="submit"><%= category.category %></button>
+    </ul>
+<% end %>
+
 <article class="section">
   <div class="container">
     <h2>検索結果</h2>
@@ -46,6 +44,11 @@
     <li><%= brand.brand %></li>
     </ul>
     <% end %>
+<!-- カテゴリの検索結果 -->
+    <% @cat.each do |ele| %>
+      <% ele.items.each do |item|%>
+        <%= item.name %>
+      <% end %>
+    <% end %>
   </div>
 </article>
-</div>
