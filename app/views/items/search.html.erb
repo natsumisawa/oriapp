@@ -2,14 +2,14 @@
   <h3>検索</h3>
   <div class="item_search">
     <%= form_tag('/items/search', method: :get) do %>
-      <input name="keyword" placeholder="アイテム名で検索" type="string" value=""><button class="btn-search" title="検索" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>></button></input>
+      <input name="keyword" placeholder="アイテム名で検索" type="string" value=""><button type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true" type="submit"></span></button></input>
     <% end %>
     <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
     </form>
   </div>
   <div class="brand_search">
     <%= form_tag('/items/search', method: :get) do %>
-      <input name="keyword" placeholder="ブランド名で検索" type="string" value=""><button class="btn-search" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>></button></input>
+      <input name="keyword" placeholder="ブランド名で検索" type="string" value=""><button class="btn-search" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></input>
     <% end %>
     <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
     </form>
