@@ -1,6 +1,6 @@
 <!-- 名前とアイコンをまず登録してもらう -->
   <% unless current_user.full_profile? %>
-    <div class="header_top panel panel-default col-lg-12 no-profile">
+    <div class="header_top panel panel-default col-lg-12 no-profile" style="padding:100px;">
       <p>プロフィールを登録しましょう！</p>
       <%= link_to "プロフィール登録", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
     </div>
@@ -8,14 +8,14 @@
 </div>
 
 <div class="container">
-  <%= image_tag "ayami.jpg" %>
-  <!-- <img src="https://s3-ap-northeast-1.amazonaws.com/lucid.tgd/pages/1a7a5768440d8e0a66ac46a7e5a83d01."> -->
-  <p>あなたのコスメを登録しましょう！</p>
-  <span class="search_link">
-    <%= link_to "コスメを検索","/items/search" %>
-  </span>
+  <article>
+    <img src="https://s3-ap-northeast-1.amazonaws.com/lucid.tgd/pages/1a7a5768440d8e0a66ac46a7e5a83d01.">
+    <p>あなたのコスメを登録しましょう！</p>
+    <span class="search_link">
+      <%= link_to "コスメを検索","/items/search" %>
+    </span>
+  </article>
 </div>
-<%= link_to "hoge", new_item_review_path(Item.first) %>
 <!-- header content section -->
 <section id="hero" class="section ">
   <div class="container">

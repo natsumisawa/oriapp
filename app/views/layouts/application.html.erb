@@ -18,7 +18,6 @@
       <div class="header-content clearfix">
         <nav class="navigation " role="navigation">
           <ul class="primary-nav">
-              <li>MENU</li>
               <%= link_to 'HOME', root_path %>
               <%= link_to 'MY PAGE', user_path(current_user) %><!--user_pathはresourcesのヘルパーメソッド-->
               <% if current_user.id %>

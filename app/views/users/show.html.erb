@@ -4,6 +4,16 @@
   <h2><%= @user.user_name %></h2>
   <%= image_tag @user.icon(:medium) %>
   <p>のポーチ</p>
+
+<div class="container">
+  <article>
+    <p>あなたのコスメを登録しましょう！</p>
+    <span class="search_link">
+      <%= link_to "コスメを検索","/items/search" %>
+    </span>
+  </article>
+</div>
+
   <section id="portfolio">
       <div class="row">
         <% 3.times do %>
