@@ -1,22 +1,50 @@
 <div class="search_form">
-<h3>検索</h3>
-<%= form_tag('/items/search', method: :get) do %>
-  <input name="keyword" placeholder="アイテム名で検索" type="string" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
-<% end %>
-<!-- <form accept-charset="utf-8" action="/" class="js-search-submit" method="get"> -->
-</form>
+  <h3>検索</h3>
+  <div class="item_search">
+    <%= form_tag('/items/search', method: :get) do %>
+      <input name="keyword" placeholder="アイテム名で検索" type="string" value=""><button class="btn-search" title="検索" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>></button></input>
+    <% end %>
+    <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+    </form>
+  </div>
+  <div class="brand_search">
+    <%= form_tag('/items/search', method: :get) do %>
+      <input name="keyword" placeholder="ブランド名で検索" type="string" value=""><button class="btn-search" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>></button></input>
+    <% end %>
+    <form accept-charset="utf-8" action="/" class="js-search-submit" method="get">
+    </form>
+  </div>
 </div>
 
 <h4>カテゴリから探す</h4>
-  <%= @category_search_items.categories %>
-
+  <% @items.each do |item| %>
+    <% item.categories.each do |category| %>
+      <ul>
+      <li><%= category.category %></li>
+      </ul>
+    <% end %>
+  <% end %>
 <article class="section">
   <div class="container">
     <h2>検索結果</h2>
-    <% @items.each do |item| %>
-      <%= item.name %>
-      <%= item.value %>
-      <%= item.item_imgs %>
+    <!-- アイテムの検索結果 -->
+    <% @search_items.each do |item| %>
+      <ul>
+      <li><%= item.name %></li>
+      <li><%= item.value %></li>
+      <li>
+      <% item.item_imgs.each do |img| %>
+        <%= image_tag img.img_url %>
+        <%= img.color %>
+      <% end %>
+      </li>
+      </ul>
+    <% end %>
+    <!-- ブランドの検索結果 -->
+    <% @search_brand.each do |brand| %>
+    <ul>
+    <li><%= brand.brand %></li>
+    </ul>
     <% end %>
   </div>
 </article>
