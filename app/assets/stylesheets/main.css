@@ -20,6 +20,15 @@
 .search_link{
 	border: solid 1px ;
 	padding :10px;
+	margin: 20px;
+}
+
+.mypage_icon{
+	border-radius: 50%;
+	overflow: hidden;
+	width: 100px;
+	height: 100px;
+	position: relative;
 }
 
 
@@ -53,9 +62,9 @@ h5 {
 	font-weight: 700;
 }
 .btn {
-	background-color: #333;
+	background-color: #ffffff;
 	margin: 40px;
-	color: #fff;
+	color: #545454;
 	font-size: 15px;
 	font-weight: 600;
 	letter-spacing: 1px;

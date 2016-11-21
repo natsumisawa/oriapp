@@ -1,9 +1,7 @@
-<div class="container">
-
-  <h1>マイページ</h1>
-  <h2><%= @user.user_name %></h2>
-  <%= image_tag @user.icon(:medium) %>
-  <p>のポーチ</p>
+<div class="clearfix" style="padding:100px;">
+  <ul><li><h3 class="glyphicon glyphicon-user"><%= @user.user_name %></h3></li>
+  <li><%= image_tag(@user.icon(:medium), :class => "mypage_icon") %></li></ul>
+</div>
 
 <div class="container">
   <article>
@@ -14,21 +12,25 @@
   </article>
 </div>
 
-  <section id="portfolio">
-      <div class="row">
-        <% 3.times do %>
-        <div class="col-xs-3 portfolio-item">
-          <a href="" class="portfolio-link">
-          <div class="caption">
-            <div class="caption-content">
-              <h3>someone's poach</h3>
-              <h4>aaaaaaaaaa</h4>
+<div class="clearfix">
+  <article>
+    <p>▽Your Pouch</p>
+    <section id="portfolio">
+        <div class="row">
+          <% 3.times do %>
+          <div class="col-xs-3 portfolio-item">
+            <a href="" class="portfolio-link">
+            <div class="caption">
+              <div class="caption-content">
+                <h3>someone's poach</h3>
+                <h4>aaaaaaaaaa</h4>
+              </div>
             </div>
+            <img src="http://cdn-cosme.net/media/product/10097/208662_m.jpg" alt="">
+            </a>
           </div>
-          <img src="http://cdn-cosme.net/media/product/10097/208662_m.jpg" alt="">
-          </a>
-        </div>
-        <% end %>
-    </div>
-  </section>
+          <% end %>
+      </div>
+    </section>
+  </article>
 </div>
