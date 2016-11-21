@@ -1,0 +1,9 @@
+<div class="container">
+  <h2><span class="glyphicon glyphicon-pencil"></span>コスメ登録</h2>
+  <ul>
+    <li><%= @items.find(params[:item_id]).name %></li>
+    <li><%= image_tag @item_imgs.find(params[:item_img_id]).img_url %></li>
+    <li><%= @item_imgs.find(params[:item_img_id]).color %></li>
+  </li>
+</div>
+

@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
     @items = Item.all
     @search_brand = ItemBrand.where('brand LIKE(?)',"%#{params[:keyword]}%").limit(50)
     @categories = Category.all
-    binding.pry
     @cat = Category.where(category: params[:category_input])
   end
 end

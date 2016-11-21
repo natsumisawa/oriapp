@@ -12,15 +12,7 @@
   </div>
 </div>
 
-<h4>カテゴリから探す</h4>
-<%= form_tag('/items/search', method: :get) do %>
-    <ul>
-      <% @categories.each do |category|%>
-          <li><input name="category_input" type="hidden" value=<%= category.category %>></input></li>
-      <% end %>
-      <button type="submit"><%= category.category %></button>
-    </ul>
-<% end %>
+
 
 <article class="section">
   <div class="container">
@@ -32,7 +24,7 @@
       <li><%= item.value %></li>
       <li>
       <% item.item_imgs.each do |img| %>
-        <%= image_tag img.img_url %>
+        <%= link_to image_tag(img.img_url) ,new_item_review_path(item, item_img_id: img.id),controller: "items", action:"search" %>
         <%= img.color %>
       <% end %>
       </li>
@@ -44,11 +36,3 @@
     <li><%= brand.brand %></li>
     </ul>
     <% end %>
-<!-- カテゴリの検索結果 -->
-    <% @cat.each do |ele| %>
-      <% ele.items.each do |item|%>
-        <%= item.name %>
-      <% end %>
-    <% end %>
-  </div>
-</article>
