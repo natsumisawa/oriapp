@@ -7,3 +7,13 @@
   </li>
 </div>
 
+<div class="container">
+  <%= form_for [@item, @review] do |f| %>
+    <%= f.number_field :how_often, placeholder: '使用頻度',value: 1, max: 5, min: 1 %>
+    <%= f.text_area :review, placeholder: 'どんなふうに使ってる？使い心地は？'%>
+    <%= f.hidden_field :item_img_id,value: params[:item_img_id] %>
+    <%= button_tag type="submit" do %>
+    登録する
+    <% end %>
+  <% end %>
+</div>
