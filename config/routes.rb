@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show,:edit,:update] #users/:idのようなURLになる
   resources :items do
+    resources :item_imgs, only: [:show]
     resources :reviews, only: [:new,:create]
     collection do
       get 'search'
