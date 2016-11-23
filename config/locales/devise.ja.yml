@@ -15,8 +15,8 @@ ja:
       last_attempt: "もう一回ログインに失敗したらアカウントがロックされます。"
       not_found_in_database: "メールアドレスまたはパスワードが無効です。"
       timeout: "一定時間が経過したため、再度ログインが必要です"
-      unauthenticated: "続けるには、ログインまたは登録（サインアップ）が必要です。"
-      unconfirmed: "続ける前に、アカウントの確認をお願いします。"
+      unauthenticated: "続けるには、ログインまたは登録（サインアップ）が必要です。サインアップをした場合、認証メールをお送りしています。"
+      unconfirmed: "続ける前に、アカウントの確認をお願いします。ご登録のメールアドレスに認証メールをお送りしています。"
     mailer:
       confirmation_instructions:
         subject: "アカウントの登録方法"

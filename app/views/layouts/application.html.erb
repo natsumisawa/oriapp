@@ -11,48 +11,10 @@
   </head>
 
   <body>
-  <div class="container">
-<!-- header top section -->
-  <section class="banner" role="banner">
-    <header id="header">
-      <div class="header-content clearfix">
-        <nav class="navigation " role="navigation">
-          <ul class="primary-nav">
-              <%= link_to 'HOME', root_path %>
-              <%= link_to 'MY PAGE', user_path(current_user) %><!--user_pathはresourcesのヘルパーメソッド-->
-              <% if current_user.id %>
-                <%= link_to '設定', edit_user_path(current_user) %>
-              <% end %>
-              <%= link_to 'ログアウト', '/users/sign_out',method: :delete %>
-          </ul>
-        </nav>
-        <a href="#" class="nav-toggle">
-        ::before
-        "MENU"
-        <span>
-        ::before
-        ::after
-        </span>
-        ::after
-        </a>
-       </div>
-    </header>
-    </section>
-<!-- header top section --> 
-
-<!-- content section --> 
-    <%= yield %>
-<!-- content section --> 
-
-<!-- footer section -->
-<footer class="footer">
-  <div class="col-xs-12 right">
-    <p>© 2016 All rights reserved.<br>
-      produced<i class="fa fa-heart pulse"></i> by SawaNatsumi</p>
+  <div class="contents">
+  <%= render 'layouts/header' %>
+  <%= yield %>
+  <%= render 'layouts/footer' %>
   </div>
-</footer>
-<!-- footer section --> 
 </body>
-</div>
-
 </html>

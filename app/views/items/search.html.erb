@@ -23,7 +23,7 @@
       <li style="border: solid 1px; padding:10px; margin:10px;" class="col-xs-12"><%= item.name %></li>
       <li class="col-xs-12"><%= item.value %></li>
       <% item.item_imgs.each do |img| %>
-      <li class="col-xs-3">
+      <li class="col-xs-3 left">
         <%= link_to image_tag(img.img_url) ,new_item_review_path(item, item_img_id: img.id),controller: "items", action:"search" %>
         <%= img.color %>
       </li>
@@ -31,8 +31,3 @@
       </ul>
     <% end %>
     <!-- ブランドの検索結果 -->
-    <% @search_brand.each do |brand| %>
-    <ul>
-    <li><%= brand.brand %></li>
-    </ul>
-    <% end %>
