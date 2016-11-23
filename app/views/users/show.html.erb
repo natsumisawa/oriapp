@@ -15,21 +15,15 @@
     <p>▽Your Pouch</p>
     <section id="portfolio">
         <div class="row">
-          <% 3.times do %>
+          <% @reviews.each do |review| %>
           <div class="col-xs-3 portfolio-item">
-            <a href="" class="portfolio-link">
-            <% @reviews.each do |review| %>
-            <div class="caption">
-              <div class="caption-content">
-                <h4><%= review.item.name %></h4>
-                <h4><%= review.item_img.color %></h4>
-              </div>
-            </div>
-            <%= image_tag(review.item_img.img_url) %>
-            <% end %>
-            </a>
+          <ul>
+            <li><%= review.item.name %></li>
+            <li><%= review.item_img.color %></li>
+            <li><%= link_to image_tag(review.item_img.img_url), item_review_path(review.item_id,review.id) %></li>
+          </ul>
           </div>
-          <% end %>
+        <% end %>
       </div>
     </section>
   </article>

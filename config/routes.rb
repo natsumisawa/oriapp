@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show,:edit,:update] #users/:idのようなURLになる
   resources :items do
     resources :item_imgs, only: [:show]
-    resources :reviews, only: [:new,:create]
+    resources :reviews, only: [:new,:create,:show]
     collection do
       get 'search'
     end

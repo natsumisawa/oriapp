@@ -1,4 +1,9 @@
 class ReviewsController < ApplicationController
+
+  def show
+    @review = Review.find(params[:id])
+  end
+
   def new
     @items = Item.all
     @item_imgs = ItemImg.all
