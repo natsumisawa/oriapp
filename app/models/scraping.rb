@@ -13,7 +13,7 @@ class Scraping
         break
       end
       # あとで消す
-      if current_url == "http://www.cosme.net/item/item_id/802/products/page/3"
+      if current_url == "http://www.cosme.net/item/item_id/802/products/page/2"
         break
       end
       next_url = page.at('.cmn-paging .next a')[:href]
@@ -21,7 +21,6 @@ class Scraping
     end
     links.each do |link|
       get_item(link)
-      get_img(link)
     end
   end
 
@@ -34,9 +33,9 @@ class Scraping
     item_brand = ItemBrand.where(brand: brand).first_or_create
     #itemを作る
     value = page.search('.info-rating .info-desc')[2].inner_text
-    binding.pry
     name = page.at('.pdct-name a').inner_text
     item = item_brand.items.where(name: name).first_or_create
+    # binding.pry
     item.update(value: value)
     #categoryとitem_categoryを作る
     category_elements = page.search('.item-category a:last')
@@ -48,14 +47,13 @@ class Scraping
     #item_imgを作る(colorとitem_img)
     color_elements = page.search(".color-txt")
     img_elements = page.search(".color-pic .pic img")
-    color_elements.each do |ele|
-      color_text = ele.inner_text
-      item_img = ItemImg.where(color: color_text ).first_or_create
-      item.item_img.where(item_id: item.id).first_or_create
-    end
-    img_elements.each do |ele|
-      img_url = ele[:src]
-      item_img.update(img_url: img_url).first_or_create
+    color_img_elements = color_elements.zip(img_elements)
+    color_img_elements.each do |color_ele, img_ele|
+      color_text = color_ele.inner_text
+      item_img = ItemImg.create(item_id: item.id, color: color_text)
+      # item_img.update(color: color_text)
+      img_url = img_ele[:src]
+      item_img.update(img_url: img_url)
     end
   end
 end
