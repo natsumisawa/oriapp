@@ -34,6 +34,7 @@ class Scraping
     item_brand = ItemBrand.where(brand: brand).first_or_create
     #itemを作る
     value = page.search('.info-rating .info-desc')[2].inner_text
+    binding.pry
     name = page.at('.pdct-name a').inner_text
     item = item_brand.items.where(name: name).first_or_create
     item.update(value: value)

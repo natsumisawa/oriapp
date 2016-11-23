@@ -1,32 +1,32 @@
-<div class="clearfix" style="padding:100px;">
-  <ul><li><h3 class="glyphicon glyphicon-user"><%= @user.user_name %></h3></li>
+<div class="clearfix move-down">
+  <ul><li><h3><%= @user.user_name %></h3></li>
   <li><%= image_tag(@user.icon(:medium), :class => "mypage_icon") %></li></ul>
+  <div class="container">
+    <article>
+      <p>あなたのコスメを登録しましょう！</p>
+      <span class="search_link">
+        <%= link_to "コスメを検索","/items/search" %>
+      </span>
+    </article>
+  </div>
 </div>
-
-<div class="container">
-  <article>
-    <p>あなたのコスメを登録しましょう！</p>
-    <span class="search_link">
-      <%= link_to "コスメを検索","/items/search" %>
-    </span>
-  </article>
-</div>
-
-<div class="clearfix">
-  <article>
+<div class="move-little-down">
+  <article class="pouch">
     <p>▽Your Pouch</p>
     <section id="portfolio">
         <div class="row">
           <% 3.times do %>
           <div class="col-xs-3 portfolio-item">
             <a href="" class="portfolio-link">
+            <% @reviews.each do |review| %>
             <div class="caption">
               <div class="caption-content">
-                <h3>someone's poach</h3>
-                <h4>aaaaaaaaaa</h4>
+                <h4><%= review.item.name %></h4>
+                <h4><%= review.item_img.color %></h4>
               </div>
             </div>
-            <img src="http://cdn-cosme.net/media/product/10097/208662_m.jpg" alt="">
+            <%= image_tag(review.item_img.img_url) %>
+            <% end %>
             </a>
           </div>
           <% end %>

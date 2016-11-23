@@ -13,6 +13,12 @@
 	padding-top: 100px;
 }
 
+.pouch{
+	border: solid 1px;
+	padding: 10px;
+	margin: 10px;
+}
+
 .left{
 	text-align: left;
 }
@@ -22,7 +28,11 @@
 }
 
 .move-down{
-	margin-top:150px;
+	padding-top:110px;
+}
+
+.move-little-down{
+	padding-top:50px;
 }
 
 .search_form{
