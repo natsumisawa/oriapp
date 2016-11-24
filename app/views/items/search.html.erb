@@ -1,0 +1,50 @@
+<div class="search_form">
+  <h3>あなたのコスメを検索！</h3>
+  <div class="item_search">
+    <%= form_tag('/items/search', method: :get) do %>
+      <input name="item_keyword" placeholder="アイテム名で検索" type="string" value=""><button type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true" type="submit"></span></button></input>
+
+      <% unless params[:item_keyword].blank? %>
+        <h3>検索結果</h3>
+        <% @search_items.each do |item| %>
+          <ul>
+          <li style="border: solid 1px; padding:10px; margin:10px;" class="col-xs-12"><%= item.name %></li>
+          <li class="col-xs-12"><%= item.value %></li>
+          <% item.item_imgs.each do |img| %>
+          <li class="col-xs-3 left">
+            <%= link_to image_tag(img.img_url) ,new_item_review_path(item, item_img_id: img.id),controller: "items", action:"search" %>
+            <%= img.color %>
+          </li>
+        <% end %>
+      </ul>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+  <div class="brand_search">
+    <%= form_tag('/items/search', method: :get) do %>
+      <input name="brand_keyword" placeholder="ブランド名で検索" type="string" value=""><button class="btn-search" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></input>
+      <!-- アイテムの検索結果 -->
+            <% unless params[:brand_keyword].blank? %>
+        <h3>検索結果</h3>
+        <% @search_brands.each do |brand| %>
+          <% brand.items.each do |item| %>
+          <ul>
+          <li style="border: solid 1px; padding:10px; margin:10px;" class="col-xs-12"><%= item.name %></li>
+          <li class="col-xs-12"><%= item.value %></li>
+      <!-- ブランドの検索結果 -->
+          <% item.item_imgs.each do |img| %>
+            <li class="col-xs-3 left">
+              <%= link_to image_tag(img.img_url) ,new_item_review_path(item, item_img_id: img.id),controller: "items", action:"search" %>
+              <%= img.color %>
+            </li>
+          <% end %>
+        <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+    <% end %>
+    <form accept-charset="utf-8" action="/" class="js-search-submit" method="get"></form>
+  </div>
+</div>

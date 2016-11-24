@@ -1,0 +1,22 @@
+<div class="contents">
+  <h3><span class="glyphicon glyphicon-pencil move-down"></span>コスメ登録</h3>
+  <ul>
+    <li><%= @items.find(params[:item_id]).name %></li>
+    <li><%= image_tag @item_imgs.find(params[:item_img_id]).img_url %></li>
+    <li><%= @item_imgs.find(params[:item_img_id]).color %></li>
+  </ul>
+  </div>
+<div class="contents">
+<ul>
+  <%= form_for [@item, @review] do |f| %>
+    <li>使用頻度</li>
+    <li><%= f.number_field :how_often, placeholder: '使用頻度',value: 1, max: 5, min: 1 %></li>
+    <li>MEMO</li>
+    <li><%= f.text_area :review, placeholder: '毎日のメイクにかかせないヘビロテアイテム。細かいパールが肌を綺麗に見せてくれる！' , size: "50", maxlength:"200" %></li>
+    <li><%= f.hidden_field :item_img_id,value: params[:item_img_id] %></li>
+    <li><%= button_tag type="submit" do %>
+    In your Pouch!!
+    <% end %></li>
+  <% end %>
+  </ul>
+</div>

@@ -11,7 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115112914) do
+ActiveRecord::Schema.define(version: 20161121114759) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "category",   limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_brands", force: :cascade do |t|
+    t.string   "brand",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "item_categories", force: :cascade do |t|
+    t.integer  "item_id",     limit: 4
+    t.integer  "category_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_imgs", force: :cascade do |t|
+    t.string   "color",      limit: 255
+    t.text     "img_url",    limit: 65535
+    t.integer  "item_id",    limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.string   "value",         limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "item_brand_id", limit: 255
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "how_often",   limit: 255
+    t.string   "review",      limit: 255
+    t.integer  "item_id",     limit: 4
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "item_img_id", limit: 4
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -30,6 +75,12 @@ ActiveRecord::Schema.define(version: 20161115112914) do
     t.string   "unconfirmed_email",      limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "user_name",              limit: 255
+    t.string   "icon",                   limit: 255
+    t.string   "icon_file_name",         limit: 255
+    t.string   "icon_content_type",      limit: 255
+    t.integer  "icon_file_size",         limit: 4
+    t.datetime "icon_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
