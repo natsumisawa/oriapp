@@ -30,8 +30,8 @@
 <!-- 名前とアイコンをまず登録してもらう -->
   <% unless current_user.full_profile? %>
     <div class="header_top panel panel-default col-lg-12 no-profile" style="padding:100px;">
-      <p>プロフィールを登録しましょう！</p>
-      <%= link_to "プロフィール登録", edit_user_path(current_user), { class: "btn btn-lg btn-primary withripple" } %>
+      <p>ご登録ありがとうございます！まずはプロフィール設定をしましょう！</p>
+      <%= link_to "プロフィール登録", edit_user_path(current_user), { class: "btn btn-lg" } %>
     </div>
   <% end %>
 
@@ -40,9 +40,13 @@
   <div class="container">
     <div class="row">
       <% @img.each do |ele| %>
-        <div class="col-sm-4 col-xs-3 portfolio-item">
-          <img src=<%= ele.img_url %> alt="">
-        </div>
+        <% if ele.item_id == rand(20) %>
+           <div class="col-sm-4 col-xs-3 portfolio-item">
+             <img src=<%= ele.img_url %> alt="">
+           <% elsif ele.item_id == rand(20) %>
+             <img src=<%= ele.img_url %> alt="">
+            </div>
+        <% end %>
       <% end %>
     </div>
   </div>

@@ -13,7 +13,7 @@ class Scraping
         break
       end
       # あとで消す
-      if current_url == "http://www.cosme.net/item/item_id/802/products/page/2show"
+      if current_url == "http://www.cosme.net/item/item_id/802/products/page/19"
         break
       end
       next_url = page.at('.cmn-paging .next a')[:href]

@@ -12,14 +12,14 @@
 </div>
 <div class="move-little-down">
   <article class="pouch">
-    <p>▽Your Pouch</p>
+    <p>▽Your Pouch▽</p>
     <section id="portfolio">
         <div class="row">
           <% @reviews.each do |review| %>
           <div class="col-xs-3 portfolio-item">
           <ul>
-            <li><%= review.item.name %></li>
-            <li><%= review.item_img.color %></li>
+            <!-- <li><%= review.item.name %></li> -->
+            <!-- <li><%= review.item_img.color %></li> -->
             <li><%= link_to image_tag(review.item_img.img_url), item_review_path(review.item_id,review.id) %></li>
           </ul>
           </div>
