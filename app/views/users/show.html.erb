@@ -1,6 +1,14 @@
 <div class="clearfix move-down">
   <ul><li><h3><%= @user.user_name %></h3></li>
-  <li><%= image_tag(@user.icon(:medium), :class => "mypage_icon") %></li></ul>
+  <!-- アイコン未設定時の対応 -->
+    <% unless current_user.full_profile? %>
+      <div class="header_top panel panel-default col-lg-12 no-profile" style="padding:100px;">
+        <p>ご登録ありがとうございます！まずはプロフィール設定をしましょう！</p>
+        <%= link_to "プロフィール登録", edit_user_path(current_user), { class: "btn btn-lg" } %>
+      </div>
+    <% else %>
+      <li><%= image_tag(@user.icon(:medium), :class => "mypage_icon") %></li></ul>
+    <% end %>
   <div class="container">
     <article>
       <p>あなたのコスメを登録しましょう！</p>
