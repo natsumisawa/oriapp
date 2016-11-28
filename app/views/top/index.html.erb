@@ -18,7 +18,7 @@
       <div class="item"><%= image_tag "top.jpeg" %>
         <div class="carousel-caption">
           <h3>HELLO</h3>
-          <p>オリアプ楽しい</p>
+          <p>みんなのポーチをみてみよう！</p>
         </div>
       </div>
     </div>
@@ -40,12 +40,10 @@
   <div class="container">
     <div class="row">
       <% @img.each do |ele| %>
-        <% if ele.item_id == rand(20) %>
-           <div class="col-sm-4 col-xs-3 portfolio-item">
-             <img src=<%= ele.img_url %> alt="">
-           <% elsif ele.item_id == rand(20) %>
-             <img src=<%= ele.img_url %> alt="">
-            </div>
+        <% if ele.item_id == rand(100) %>
+          <div class="col-sm-4 col-xs-3 portfolio-item">
+            <img src=<%= ele.img_url %> alt="">
+          </div>
         <% end %>
       <% end %>
     </div>
