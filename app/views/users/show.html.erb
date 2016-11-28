@@ -47,9 +47,9 @@
     <h4>ほかのユーザー</h4>
     <% @other_users.each do |user| %>
       <ul>
-      <div class="col-xs-2">
+      <div class="col-xs-4">
         <li><%= user.user_name %></li>
-        <li><%= link_to image_tag(user.icon, :class => "mypage_icon"),  user_path(user.id) %></li>
+        <li><%= link_to image_tag(user.icon, :class => "other_user_icon"),  user_path(user.id) %></li>
       </div>
       </ul>
     <% end %>

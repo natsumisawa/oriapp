@@ -1,11 +1,10 @@
 <header id="header">
-  <div class="header-content clearfix"> <a class="logo" href="#">ORIAPP</a>
+  <div class="header-content clearfix"><a class="logo" href=<%= root_path %>>COSMEKKO</a>
     <nav class="navigation" role="navigation">
       <ul class="primary-nav">
-        <li><%= link_to 'HOME', root_path %></li>
         <% if signed_in? %>
-          <li><%= link_to 'MY PAGE', user_path(current_user) %></li>
-          <li><%= link_to '設定', edit_user_path(current_user) %></li>
+          <li><%= link_to image_tag("pouch.jpeg",:class => "header_icon"), user_path(current_user) %></li>
+          <li><%= link_to image_tag("setting.jpeg",:class => "header_icon"), edit_user_path(current_user) %></li>
           <li><%= link_to 'ログアウト', '/users/sign_out',method: :delete %></li>
         <% end %>
       </ul>

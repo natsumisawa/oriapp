@@ -12,9 +12,9 @@
 <div class="container">
   <h4>このアイテムがポーチに入っているユーザー</h4>
     <% @review.item.reviews.each do |review| %>
-      <div class="col-xs-2">
+      <div class="col-xs-4">
         <ul><li><%= review.user.user_name %></li>
-        <li><%= link_to image_tag(review.user.icon, :class => "mypage_icon"),  user_path(review.user.id) %></li></ul>
+        <li><%= link_to image_tag(review.user.icon, :class => "other_user_icon"),  user_path(review.user.id) %></li></ul>
       </div>
     <% end %>
 </div>
