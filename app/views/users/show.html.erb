@@ -18,21 +18,34 @@
     </article>
   </div>
 </div>
-<div class="move-little-down">
-  <article class="pouch">
-    <p>▽Your Pouch▽</p>
-    <section id="portfolio">
-        <div class="row">
-          <% @reviews.each do |review| %>
-          <div class="col-xs-3 portfolio-item">
-          <ul>
-            <!-- <li><%= review.item.name %></li> -->
-            <!-- <li><%= review.item_img.color %></li> -->
-            <li><%= link_to image_tag(review.item_img.img_url), item_review_path(review.item_id,review.id) %></li>
-          </ul>
-          </div>
-        <% end %>
+<div class="container">
+  <div class="move-little-down">
+    <article class="pouch">
+      <p>▽Your Pouch▽</p>
+      <section id="portfolio">
+          <div class="row">
+            <% @reviews.each do |review| %>
+            <div class="col-xs-3 portfolio-item">
+            <ul>
+              <!-- <li><%= review.item.name %></li> -->
+              <!-- <li><%= review.item_img.color %></li> -->
+              <li><%= link_to image_tag(review.item_img.img_url), item_review_path(review.item_id,review.id) %></li>
+            </ul>
+            </div>
+          <% end %>
+        </div>
+      </section>
+    </article>
+  </div>
+  <div class="move-down ">
+    <h4>OTHER PERSON'S POUCH</h4>
+    <% @other_users.each do |user| %>
+      <ul>
+      <div class="col-xs-2">
+        <li><%= user.user_name %></li>
+        <li><%= link_to image_tag(user.icon, :class => "mypage_icon"),  user_path(user.id) %></li>
       </div>
-    </section>
-  </article>
+      </ul>
+    <% end %>
+  </div>
 </div>
