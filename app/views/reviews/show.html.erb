@@ -1,9 +1,20 @@
 <div class="contents move-down">
   <ul>
   <li><%= image_tag(@review.item_img.img_url) %></li>
+  <li><%= @review.item.item_brand.brand %></li>
   <li><%= @review.item.name %></li>
   <li><%= @review.item_img.color %></li>
+  <br>
   <li><%= @review.how_often %></li>
   <p><%= @review.review %></p>
   </ul>
+</div>
+<div class="container">
+  <h4>このアイテムがポーチに入っているユーザー</h4>
+    <% @review.item.reviews.each do |review| %>
+      <div class="col-xs-2">
+        <ul><li><%= review.user.user_name %></li>
+        <li><%= link_to image_tag(review.user.icon, :class => "mypage_icon"),  user_path(review.user.id) %></li></ul>
+      </div>
+    <% end %>
 </div>
