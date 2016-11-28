@@ -54,3 +54,7 @@ gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-material-design', '0.1.4'
 gem 'mechanize'
+
+group :production, :staging do
+  gem 'rails_12factor'
+end
