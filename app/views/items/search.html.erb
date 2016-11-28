@@ -8,7 +8,7 @@
         <h3>検索結果</h3>
         <% @search_items.each do |item| %>
           <ul>
-          <li style="border: solid 1px; padding:10px; margin:10px;" class="col-xs-12"><%= item.name %></li>
+          <li style="border: solid 1px; padding:10px; margin:10px;" class="col-xs-12"><%= item.item_brand.brand %> / #<%= item.name %></li>
           <li class="col-xs-12"><%= item.value %></li>
           <% item.item_imgs.each do |img| %>
           <li class="col-xs-3 left">
@@ -20,7 +20,7 @@
       <% end %>
     <% end %>
   <% end %>
-</div>
+  </div>
 
   <div class="brand_search">
     <%= form_tag('/items/search', method: :get) do %>
@@ -31,7 +31,7 @@
         <% @search_brands.each do |brand| %>
           <% brand.items.each do |item| %>
           <ul>
-          <li style="border: solid 1px; padding:10px; margin:10px;" class="col-xs-12"><%= item.name %></li>
+          <li style="border: solid 1px; padding:10px; margin:10px;" class="col-xs-12">#<%= brand.brand %> / <%= item.name %></li>
           <li class="col-xs-12"><%= item.value %></li>
       <!-- ブランドの検索結果 -->
           <% item.item_imgs.each do |img| %>
