@@ -9,9 +9,7 @@ class Scraping
       elements.each do |ele|
         links << ele[:href]
       end
-      unless page.at('.cmn-paging .next a')
-        break
-      end
+      break unless page.at('.cmn-paging .next a')
       # あとで消す
       if current_url == "http://www.cosme.net/item/item_id/802/products/page/19"
         break
