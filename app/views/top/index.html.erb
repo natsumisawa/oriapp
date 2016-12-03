@@ -28,12 +28,14 @@
 <!-- Slider Section -->
 
 <!-- 名前とアイコンをまず登録してもらう -->
+<% if signed_in? %>
   <% unless current_user.full_profile? %>
     <div class="header_top panel panel-default col-lg-12 no-profile" style="padding:100px;">
       <p>ご登録ありがとうございます！まずはプロフィール設定をしましょう！</p>
       <%= link_to "プロフィール登録", edit_user_path(current_user), { class: "btn btn-lg" } %>
     </div>
   <% end %>
+<% end %>
 
 <!-- portfolio grid section -->
 <section id="portfolio">
