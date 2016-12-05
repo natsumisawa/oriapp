@@ -1,16 +1,15 @@
-<header id="header">
-  <div class="header-content clearfix"><a class="logo" href=<%= root_path %>>COSMEKKO</a>
-    <nav class="navigation" role="navigation">
-      <ul class="primary-nav">
-        <% unless signed_in? %>
-          <li><%= link_to 'ログイン', new_user_session_path %></li>
-        <% end %>
-        <% if signed_in? %>
-          <li><%= link_to 'マイページ', user_path(current_user) %></li>
-          <li><%= link_to '設定', edit_user_path(current_user) %></li>
-          <li><%= link_to 'ログアウト', '/users/sign_out',method: :delete %></li>
-        <% end %>
-      </ul>
-    </nav>
-    <a href="#" class="nav-toggle">Menu<span></span></a> </div>
+<header>
+  <div class="">
+  <a href=<%= root_path %>><%= image_tag('cosmekko_logo.jpeg', :class => "logo") %></a>
+    <ul>
+      <% unless signed_in? %>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
+      <% end %>
+      <% if signed_in? %>
+        <li><%= link_to 'マイページ', user_path(current_user) %></li>
+        <li><%= link_to '設定', edit_user_path(current_user) %></li>
+        <li><%= link_to 'ログアウト', '/users/sign_out',method: :delete %></li>
+      <% end %>
+    </ul>
+  </div>
 </header>
