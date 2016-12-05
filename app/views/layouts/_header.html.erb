@@ -1,15 +1,19 @@
 <header>
-  <div class="">
+  <div class="header">
   <a href=<%= root_path %>><%= image_tag('cosmekko_logo.jpeg', :class => "logo") %></a>
-    <ul>
-      <% unless signed_in? %>
-        <li><%= link_to 'ログイン', new_user_session_path %></li>
-      <% end %>
-      <% if signed_in? %>
-        <li><%= link_to 'マイページ', user_path(current_user) %></li>
-        <li><%= link_to '設定', edit_user_path(current_user) %></li>
-        <li><%= link_to 'ログアウト', '/users/sign_out',method: :delete %></li>
-      <% end %>
+    <ul class="dropdown">
+      <li><a class="dropdown-toggle" data-toggle="dropdown"><%= image_tag("cosmekko_menu") %><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <% unless signed_in? %>
+          <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <% end %>
+        <% if signed_in? %>
+          <li><%= link_to 'マイページ', user_path(current_user) %></li>
+          <li><%= link_to '設定', edit_user_path(current_user) %></li>
+          <li><%= link_to 'ログアウト', '/users/sign_out',method: :delete %></li>
+        <% end %>
+    </ul>
+    </li>
     </ul>
   </div>
 </header>
