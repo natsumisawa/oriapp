@@ -1,16 +1,19 @@
-<div class="contents move-down">
+<div class="contents">
   <ul>
-  <li><%= image_tag(@review.item_img.img_url) %></li>
   <li><%= @review.item.item_brand.brand %></li>
   <li><%= @review.item.name %></li>
+  <li><%= image_tag(@review.item_img.img_url) %></li>
   <li><%= @review.item_img.color %></li>
   <br>
+  <p>comments</p>
+  <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
   <li><%= @review.how_often %></li>
   <p><%= @review.review %></p>
   </ul>
 </div>
-<div class="container">
-  <h4>このアイテムがポーチに入っているユーザー</h4>
+<div class="contents">
+  <p>このアイテムがポーチに入っているユーザー</p>
+  <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
     <% @review.item.reviews.each do |review| %>
       <div class="col-xs-4">
         <ul><li><%= review.user.user_name %></li>

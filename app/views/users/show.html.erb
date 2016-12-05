@@ -1,5 +1,5 @@
-<div class="clearfix move-down">
-  <ul><li><h3><%= @user.user_name %></h3></li>
+<div class="clearfix">
+  <ul><li><p><%= @user.user_name %></p></li>
   <!-- アイコン未設定時の対応 -->
     <% unless current_user.full_profile? %>
       <div class="header_top panel panel-default col-lg-12 no-profile" style="padding:100px;">
@@ -9,10 +9,9 @@
     <% else %>
       <li><%= image_tag(@user.icon(:medium), :class => "mypage_icon") %></li></ul>
     <% end %>
-  <div class="container">
+  <div class="contents">
     <article>
     <% if current_user == @user %>
-      <p>あなたのコスメを登録しましょう！</p>
       <span class="search_link">
         <%= link_to "コスメを検索","/items/search" %>
       </span>
@@ -20,31 +19,32 @@
     </article>
   </div>
 </div>
-<div class="container">
-  <div class="move-little-down">
-    <article class="pouch">
-      <% if current_user == @user %>
-        <p>▽Your Pouch</p>
-      <% else %>
-        <p>▽<%= @user.user_name %>'s Pouch</p>
-      <% end %>
-      <section id="portfolio">
-          <div class="row">
-            <% @reviews.each do |review| %>
-            <div class="col-xs-3 portfolio-item">
-            <ul>
-              <!-- <li><%= review.item.name %></li> -->
-              <!-- <li><%= review.item_img.color %></li> -->
-              <li><%= link_to image_tag(review.item_img.img_url), item_review_path(review.item_id,review.id) %></li>
-            </ul>
-            </div>
-          <% end %>
-        </div>
-      </section>
-    </article>
-  </div>
-  <div class="move-down ">
-    <h4>ほかのユーザー</h4>
+<div class="contents">
+  <article>
+    <% if current_user == @user %>
+      <p>▽Your Pouch</p>
+      <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
+    <% else %>
+      <p>▽<%= @user.user_name %>'s Pouch</p>
+      <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
+    <% end %>
+    <section id="portfolio">
+        <div class="row">
+          <% @reviews.each do |review| %>
+          <div class="col-xs-4 portfolio-item">
+          <ul>
+            <!-- <li><%= review.item.name %></li> -->
+            <!-- <li><%= review.item_img.color %></li> -->
+            <li><%= link_to image_tag(review.item_img.img_url), item_review_path(review.item_id,review.id) %></li>
+          </ul>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </article>
+  <div class="contents move-little-down">
+    <p>ほかのユーザー</p>
+    <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
     <% @other_users.each do |user| %>
       <ul>
       <div class="col-xs-4">

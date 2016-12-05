@@ -41,9 +41,10 @@
 }
 
 .search_link{
+	display: block;
 	border: solid 1px ;
-	padding :10px;
-	margin: 20px;
+	padding: 10px;
+	margin: 30px;
 }
 
 .mypage_icon{
@@ -67,6 +68,10 @@
 	width: 30px;
 	height: 30px;
 	position: relative;
+}
+
+.top-search{
+	padding: 50px;
 }
 
 
@@ -98,7 +103,7 @@ h2 {
 h3 {
 	font-size: 28px;
 	color: #26282B;
-	font-weight: 300;
+	font-weight: 100;
 }
 h4 {
 	font-size: 22px;
@@ -136,13 +141,13 @@ h5 {
 a {
 	color: #e84545;
 }
-a:hover, a:focus {
+/*a:hover, a:focus {
 	text-decoration: none;
 	-moz-transition: background-color, color, 0.3s;
 	-o-transition: background-color, color, 0.3s;
 	-webkit-transition: background-color, color, 0.3s;
 	transition: background-color, color, 0.3s;
-}
+}*/
 body {
 	font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
 	font-weight: 400;
@@ -169,14 +174,16 @@ ul li {
 	 Header & navigation
 -------------------------------------------------------------------------------*/
 .header {
-	height: 50px;
 	text-align: center;
+	font-size: 30px;
+	font-family: "Courier New";
+	color: #26282B;
 }
 
 .logo{
 	display: block;
 	margin: auto;
-	padding: 5px;
+	margin-top: -10px;
 }
 
 #header.fixed {
@@ -352,52 +359,6 @@ ul li {
 	 Header Slider
 -------------------------------------------------------------------------------*/
 
-.carousel {
-	width: 94%;
-	height: 500px;
-	margin: auto;
-}
-.item, .active, .carousel-inner {
-	height: 100%;
-}
-.carousel-caption {
-	bottom: 40%;
-	color: #fff;
-	left: 15%;
-	padding-bottom: 20px;
-	padding-top: 20px;
-	position: absolute;
-	right: 15%;
-	text-align: center;
-	z-index: 10;
-}
-.carousel-caption h3 {
-	font-family: "Open Sans", sans-serif;
-	color: #26282B;
-	text-shadow: none;
-	font-size: 31px;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 5px;
-}
-.carousel-caption p {
-	font-family: "Open Sans", sans-serif;
-	color: #6c7279;
-	text-shadow: none;
-	font-size: 13px;
-	font-weight: 400;
-	letter-spacing: 2px;
-}
-.carousel-control.left {
-	background: none;
-}
-.carousel-control.right {
-	background: none;
-}
-.carousel-control {
-	opacity: 1;
-	text-shadow: none;
-}
 /* ------------------------------------------------------------------------------
 	 Services
 -------------------------------------------------------------------------------*/
@@ -534,11 +495,9 @@ ul li {
 	text-align: left;
 	padding-top: 5%;
 	padding-bottom: 7%;
-	background-color: #DDDDDD;
 }
 .footer h4 {
 	font-size: 13px;
-	color: #000;
 	margin: 0 0 15px 0;
 	padding: 0px;
 }
