@@ -13,12 +13,6 @@
 	padding-top: 100px;
 }
 
-.pouch{
-	border: double 1px;
-	padding: 10px;
-	margin: 10px;
-}
-
 .left{
 	text-align: left;
 }
@@ -35,16 +29,15 @@
 .move-little-down{
 	padding-top:50px;
 }
-
-.search_form{
-	padding-top: 100px;
-}
-
 .search_link{
 	display: block;
 	border: solid 1px ;
 	padding: 10px;
 	margin: 30px;
+}
+
+.after-search{
+	margin: 10px;
 }
 
 .mypage_icon{
@@ -178,6 +171,14 @@ ul li {
 	font-size: 30px;
 	font-family: "Courier New";
 	color: #26282B;
+	border-bottom: dotted 1px;
+	border-color: #26282B;
+}
+
+.menu{
+	font-size: 11px;
+	padding:10px;
+	text-align: right;
 }
 
 .logo{

@@ -5,15 +5,15 @@
   <li><%= image_tag(@review.item_img.img_url) %></li>
   <li><%= @review.item_img.color %></li>
   <br>
-  <p>comments</p>
   <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
+  <p>comments</p>
   <li><%= @review.how_often %></li>
   <p><%= @review.review %></p>
   </ul>
 </div>
 <div class="contents">
-  <p>このアイテムがポーチに入っているユーザー</p>
   <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
+  <p>このアイテムがポーチに入っているユーザー</p>
     <% @review.item.reviews.each do |review| %>
       <div class="col-xs-4">
         <ul><li><%= review.user.user_name %></li>
