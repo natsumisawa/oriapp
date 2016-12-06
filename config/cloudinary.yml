@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hxksviiqu
+  api_key: '659949959728948'
+  api_secret: Ot0NHqHpjvMYRxOzy9cT9VqaI84
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hxksviiqu
+  api_key: '659949959728948'
+  api_secret: Ot0NHqHpjvMYRxOzy9cT9VqaI84
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hxksviiqu
+  api_key: '659949959728948'
+  api_secret: Ot0NHqHpjvMYRxOzy9cT9VqaI84
+  enhance_image_tag: true
+  static_image_support: false

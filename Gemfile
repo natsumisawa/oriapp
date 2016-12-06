@@ -58,3 +58,21 @@ gem 'mechanize'
 group :production, :staging do
   gem 'rails_12factor'
 end
+
+source 'https://rubygems.org'
+
+gem 'carrierwave'
+gem 'cloudinary'
+
+gem 'heroku'
+
+group :test, :development do
+    gem 'sqlite3'
+end
+
+group :production do
+    gem 'pg'
+    gem 'thin'
+end
+
+gem 'jquery-rails'
