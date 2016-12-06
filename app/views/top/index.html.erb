@@ -8,22 +8,15 @@
       </div>
     <% end %>
   <% end %>
-  <div class="top-cosme contents">
-  <p>What's in your pouch?</p>
-    <div class="row">
-      <% @img.each do |ele| %>
-        <% if ele.item_id == rand(100) %>
-          <div class="col-sm-4 col-xs-4 portfolio-item">
-            <img src=<%= ele.img_url %> alt="">
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+  <div class="top-img">
+    <%= image_tag('top.jpeg') %>
+    <p class="text">What's in your pouch?</p>
   </div>
 
-  <div class="top-img">
+  <div class="top-text">
     <h4>毎日のメイクをコーディネイト</h4>
-    <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
+    <%= image_tag('cosmekko_logo.png', :class => "logo") %>
+    <%= image_tag('cosmekko_gip.png', :class => "logo") %>
     <p>同じコスメを持っている<br>ユーザーとつながれます</p>
   </div>
   <div class="top-search">
@@ -31,6 +24,18 @@
     <span class="search_link"><%= link_to "コスメを検索","/items/search" %></span>
     <% else %>
     <span class="search_link"><%= link_to "コスメを検索", new_user_session_path %></span>
+    <% end %>
+  </div>
+  <h4>ポーチを見てみる</h4>
+  <%= image_tag('cosmekko_logo.png', :class => "logo") %>
+  <%= image_tag('cosmekko_gip.png', :class => "logo") %>
+  <% @users.each do |user| %>
+     <ul>
+      <div class="col-xs-4">
+        <li><%= user.user_name %></li>
+        <li><%= link_to image_tag(user.icon, :class => "other_user_icon"),  user_path(user.id) %></li>
+      </div>
+      </ul>
     <% end %>
   </div>
 </div>
