@@ -1,23 +1,35 @@
 <div class="contents">
-  <ul><li><p><%= @user.user_name %></p></li>
   <!-- アイコン未設定時の対応 -->
   <% if signed_in? %>
     <% unless current_user.full_profile? %>
-      <div class="header_top panel panel-default col-lg-12 no-profile" style="padding:100px;">
+      <div class="header_top col-xs-12 no-profile">
         <p>ご登録ありがとうございます！まずはプロフィール設定をしましょう！</p>
         <%= link_to "プロフィール登録", edit_user_path(current_user), { class: "btn btn-lg" } %>
       </div>
     <% else %>
-      <li><%= image_tag(@user.icon(:medium), :class => "mypage_icon") %></li></ul>
+    <div class="userpage">
+      <div class="userpage-icon col-xs-6">
+        <ul>
+        <li><%= image_tag(@user.icon(:medium), :class => "mypage_icon") %></li></ul>
+      </div>
+      <div class="userpage-profile col-xs-6">
+      <ul>
+        <li><%= @user.user_name %></li>
+        <li><%= @user.profile %></li>
+      </ul>
+      </div>
+    </div>
     <% end %>
   <% else %>
+  <!-- サインアップしてない人が見れるようにする -->
   <li><%= image_tag(@user.icon(:medium), :class => "mypage_icon") %></li>
   <% end %>
+  <!-- コンテンツ -->
   <div class="contents">
     <article>
     <% if current_user == @user %>
-      <span class="search_link">
-        <%= link_to "コスメを検索","/items/search" %>
+      <span class="search_link move-little-down">
+        <%= link_to "コスメを登録","/items/search" %>
       </span>
     <% end %>
     </article>
@@ -47,8 +59,8 @@
     </section>
   </article>
   <div class="contents move-little-down">
-    <p>ほかのユーザー</p>
-    <%= image_tag('cosmekko_gip.jpeg', :class => "logo") %>
+    <p>ほかのユーザーのポーチをみてみる</p>
+    <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
     <% @other_users.each do |user| %>
       <ul>
       <div class="col-xs-4">

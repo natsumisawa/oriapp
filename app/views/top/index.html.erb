@@ -15,7 +15,7 @@
 
   <div class="top-text">
     <h4>毎日のメイクをコーディネイト</h4>
-    <%= image_tag('cosmekko_gip.jpeg', :class => "logo") %>
+    <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
     <p>同じコスメを持っている<br>ユーザーとつながれます</p>
   </div>
   <div class="top-search">
@@ -25,8 +25,8 @@
     <span class="search_link"><%= link_to "コスメを検索", new_user_session_path %></span>
     <% end %>
   </div>
-  <p>ポーチを見てみる</p>
-  <%= image_tag('cosmekko_gip.jpeg', :class => "logo") %>
+  <p>おすすめユーザーのポーチを見てみる</p>
+  <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
   <% @users.each do |user| %>
      <ul>
       <div class="col-xs-4">
