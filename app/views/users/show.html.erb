@@ -26,13 +26,11 @@
 <div class="contents">
   <article>
     <% if current_user == @user %>
-      <%= image_tag('cosmekko_logo.png', :class => "logo") %>
-      <%= image_tag('cosmekko_gip.png', :class => "logo") %>
       <p>▽Your Pouch</p>
+      <%= image_tag('cosmekko_gip.jpeg', :class => "logo") %>
     <% else %>
-      <%= image_tag('cosmekko_logo.png', :class => "logo") %>
-      <%= image_tag('cosmekko_gip.png', :class => "logo") %>
       <p>▽<%= @user.user_name %>'s Pouch</p>
+      <%= image_tag('cosmekko_gip.jpeg', :class => "logo") %>
     <% end %>
     <section id="portfolio">
         <div class="row">
@@ -49,9 +47,8 @@
     </section>
   </article>
   <div class="contents move-little-down">
-    <%= image_tag('cosmekko_logo.png', :class => "logo") %>
-    <%= image_tag('cosmekko_gip.png', :class => "logo") %>
     <p>ほかのユーザー</p>
+    <%= image_tag('cosmekko_gip.jpeg', :class => "logo") %>
     <% @other_users.each do |user| %>
       <ul>
       <div class="col-xs-4">
