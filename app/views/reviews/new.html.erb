@@ -1,19 +1,18 @@
-<div class="contents">
-  <p><span class="glyphicon glyphicon-pencil move-down"></span>コスメ登録</p>
-  <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
+<div class="review-items">
   <ul>
-    <span style="border: solid 1px; padding:10px; margin:10px;"><%= @items.find(params[:item_id]).name %></span>
+    <span style="border: solid 1px; padding:10px;"><%= @items.find(params[:item_id]).name %></span>
     <li class="move-little-down"><%= image_tag @item_imgs.find(params[:item_img_id]).img_url %></li>
     <li><%= @item_imgs.find(params[:item_img_id]).color %></li>
   </ul>
   </div>
-<div class="contents">
+<div class="contents review">
+<p>\\コスメ登録//</p>
 <ul>
   <%= form_for [@item, @review] do |f| %>
     <li>ヘビロテ度</li>
     <li><%= f.number_field :how_often, placeholder: '使用頻度',value: 1, max: 5, min: 1 %></li>
     <li>どんなふうに使ってる？</li>
-    <li><%= f.text_area :review, placeholder: '毎日のメイクにかかせないヘビロテアイテム。細かいパールが肌を綺麗に見せてくれる！頬骨の一番高いところにオンしています。' , size: "80", maxlength:"200" %></li>
+    <li><%= f.text_area :review, placeholder: '毎日のメイクにかかせないヘビロテアイテム。細かいパールが肌を綺麗に見せてくれる！頬骨の一番高いところにオンしています。' , size: "40", maxlength:"200" %></li>
     <li><%= f.hidden_field :item_img_id,value: params[:item_img_id] %></li>
     <li class="move-little-down"><%= button_tag type="submit" do %>
     In your Pouch!!

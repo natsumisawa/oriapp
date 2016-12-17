@@ -9,21 +9,28 @@
     <% end %>
   <% end %>
   <div class="top-img">
-    <%= image_tag('top.jpeg') %>
     <p class="text">What's in your pouch?</p>
   </div>
 
   <div class="top-text">
     <h4>毎日のメイクをコーディネイト</h4>
-    <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>
-    <p>同じコスメを持っている<br>ユーザーとつながれます</p>
+    <P class="search_link">3stepであなたのコスメを最大限活用しましょう</P>
+    <br>
+    <p>1 あなたのコスメを検索</p>
+    <br>
+    <p>2 コメントを書いてポーチへイン！</p>
+    <br>
+    <p>3 同じコスメを持っている<br>ユーザーとつながれます</p>
+    <br>
   </div>
   <div class="top-search">
+    <p>▼早速検索！</p>
     <% if signed_in? %>
     <span class="search_link"><%= link_to "コスメを検索","/items/search" %></span>
     <% else %>
     <span class="search_link"><%= link_to "コスメを検索", new_user_session_path %></span>
     <% end %>
+    <br><br><p>すべての最新コスメがカテゴリ、ブランドから検索できます</p>
   </div>
   <p>おすすめユーザーのポーチを見てみる</p>
   <%= image_tag('cosmekko_logo.jpeg', :class => "logo") %>

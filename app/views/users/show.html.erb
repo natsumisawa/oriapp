@@ -26,10 +26,10 @@
   <li><%= image_tag(@user.icon(:medium), :class => "mypage_icon") %></li>
   <% end %>
   <!-- コンテンツ -->
-  <div class="contents">
+  <div class="col-xs-12 user-search">
     <article>
     <% if current_user == @user %>
-      <span class="search_link move-little-down">
+      <span class="search_link">
         <%= link_to "コスメを登録","/items/search" %>
       </span>
     <% end %>
@@ -38,13 +38,6 @@
 </div>
 <div class="contents">
   <article>
-    <% if current_user == @user %>
-      <p>▽Your Pouch</p>
-      <%= image_tag('cosmekko_gip.jpeg', :class => "logo") %>
-    <% else %>
-      <p>▽<%= @user.user_name %>'s Pouch</p>
-      <%= image_tag('cosmekko_gip.jpeg', :class => "logo") %>
-    <% end %>
     <section id="portfolio">
         <div class="row">
           <% @reviews.each do |review| %>
