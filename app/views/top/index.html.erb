@@ -8,13 +8,16 @@
       </div>
     <% end %>
   <% end %>
-  <div class="top-img">
+  <div class="top-img col-xs-12">
     <p class="text">What's in your pouch?</p>
   </div>
 
-  <div class="top-text">
+  <div class="top-text col-xs-12">
     <h4>毎日のメイクをコーディネイト</h4>
-    <P class="search_link">3stepであなたのコスメを最大限活用しましょう</P>
+        <% @imgs.each do |img| %>
+      <%= image_tag(img.img_url) %>
+    <% end %>
+    <p class="search_link">3stepであなたのコスメを最大限活用しましょう</P>
     <br>
     <p>1 あなたのコスメを検索</p>
     <br>
@@ -23,7 +26,7 @@
     <p>3 同じコスメを持っている<br>ユーザーとつながれます</p>
     <br>
   </div>
-  <div class="top-search">
+  <div class="top-search col-xs-12">
     <p>▼早速検索！</p>
     <% if signed_in? %>
     <span class="search_link"><%= link_to "コスメを検索","/items/search" %></span>
